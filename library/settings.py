@@ -101,7 +101,7 @@ WSGI_APPLICATION = 'library.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(      
-             default='postgres://library_4kn6_user:N7qmq5YHQ6XcQXbu5afkxaNi7yznVgZx@dpg-cmbu3an109ks73afi9eg-a.oregon-postgres.render.com/library_4kn6',   
+             default='postgres://library_v1om_user:XpbUhdh1klCZbvMMzhIDQoyELCws30uT@dpg-cmbuffud3nmc73en0a3g-a.oregon-postgres.render.com/library_v1om',   
              
              )
              }
