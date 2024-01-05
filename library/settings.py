@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import dj_database_url
 import environ
 env = environ.Env()
 environ.Env.read_env()
@@ -27,8 +28,8 @@ SECRET_KEY = env("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ["*"]
+CSRF_TRUSTED_ORIGINS = ['https://a5library.onrender.com','https://*.127.0.0.1']
 
 # Application definition
 
@@ -83,19 +84,27 @@ WSGI_APPLICATION = 'library.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': env("DB_NAME"),
+#         'USER': env("DB_USER"),
+#         'PASSWORD': env("DB_PASSWORD"),
+#         'HOST': env("DB_HOST"),
+#         'PORT': env("DB_PORT"),
+#     }
+# }
+
+
+# Database
+# https://docs.djangoproject.com/en/3.0/ref/settings/#databases
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': env("DB_NAME"),
-        'USER': env("DB_USER"),
-        'PASSWORD': env("DB_PASSWORD"),
-        'HOST': env("DB_HOST"),
-        'PORT': env("DB_PORT"),
-    }
-}
-
-
-
+    'default': dj_database_url.config(      
+             default='postgres://library_4kn6_user:N7qmq5YHQ6XcQXbu5afkxaNi7yznVgZx@dpg-cmbu3an109ks73afi9eg-a.oregon-postgres.render.com/library_4kn6',   
+             
+             )
+             }
 
 
 
